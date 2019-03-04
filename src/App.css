@@ -1,33 +1,104 @@
-.App {
-  text-align: center;
+
+#title {
+  position: absolute;
+  right: 50%;
+}
+#repeatButton {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 50%;
+  right: 20%; 
+  cursor: pointer;
+}
+button {
+  border-radius: 3px;
+}
+h1 {  
+  font-size: 150%;
+  padding: 0.25em .5em;  
+}
+.dashboard {
+  position: absolute;
+  padding: 0.25em .5em; 
+  top: 30%; 
+}
+.output label {
+  font-weight: 500;
+}
+.output button {
+  width: 40px;
+  font-weight: 700;
+}
+.dashboard span, 
+.dashboard div,
+.dashboard label {
+  padding: 0.1em .5em;  
+}
+h1 span {
+  border: 1px solid hsla(208, 100%, 97.1%, .2);
+  padding: 0.1em .2em;  
+}
+.error {
+  color: red;
+  font-weight: 500;
+}
+.icons { 
+  display: inline-block;
+  width: 128px;
+  height: 564px;
+  overflow: hidden;
+  background: #fff url(assets/sprite5.png) repeat-y;
+  will-change: backgroundPosition;
+  transition: 0.3s background-position ease-in-out;
+  padding: 0 80px;
+  transform: translateZ(0);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.icons:nth-child(2) {
+  margin: 0 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+* { box-sizing: border-box; }
+
+.spinner-container {
+  overflow: hidden;
+  height: 632px;  
+  padding: 2em;
+  transform: translate(-50%, -50%) scale(.62, .62);
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: 0.3s transform;
 }
 
-.App-link {
-  color: #61dafb;
+.app-wrap.winner-false {
+  animation: linear 1s spin;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.spinner-container::after {
+  position: absolute;
+  content: '';
+  display: block;
+  height: 180px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 30px;
+  left: 30px;
+  background: rgba(255, 0, 0, .1);  
+}
+
+@media screen and (max-width: 1000px) {
+  .spinner-container{
+    transform: translate(-50%, -50%) scale(.55, .55);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 500px) {
+  .spinner-container  {
+    transform: translate(-50%, -50%) scale(.4, .4);
   }
 }
